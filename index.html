@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle Survey - Research & Analytics Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-icon">✓</div>
+                <div class="nav-text">
+                    <h1>Lifestyle Survey</h1>
+                    <p>Research & Analytics Platform</p>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showSurvey()">Fill Out Survey</button>
+                <button class="nav-btn" onclick="showResults()">View Results</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Survey Page -->
+    <div id="survey-page" class="page">
+        <div class="container">
+            <div class="header-text">
+                <h2>Share Your Lifestyle Preferences</h2>
+                <p>Help us understand your food preferences and dining habits. Your responses are anonymous and will be used for research purposes only.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Lifestyle & Food Preferences Survey</h3>
+                </div>
+                <div class="card-content">
+                    <form id="survey-form">
+                        <!-- Personal Information Section -->
+                        <div class="section">
+                            <div class="section-header">
+                                <div class="section-number">1</div>
+                                <h4>Personal Information</h4>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name <span class="required">*</span></label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                    <div id="fullName-error" class="error-message"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required>
+                                    <div id="email-error" class="error-message"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                                    <div id="dateOfBirth-error" class="error-message"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age <span class="required">*</span></label>
+                                    <input type="number" id="age" name="age" min="5" max="120" required>
+                                    <div id="age-error" class="error-message"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Food Preferences Section -->
+                        <div class="section">
+                            <div class="section-header">
+                                <div class="section-number green">2</div>
+                                <h4>Food Preferences</h4>
+                            </div>
+                            <div class="checkbox-section">
+                                <label class="section-label">
+                                    What are your favorite types of food? 
+                                    <span class="hint">(Select all that apply)</span>
+                                </label>
+                                <div class="checkbox-grid">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pizza" name="favoriteFoods" value="Pizza">
+                                        <label for="pizza">🍕 Pizza</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pasta" name="favoriteFoods" value="Pasta">
+                                        <label for="pasta">🍝 Pasta</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="papAndWors" name="favoriteFoods" value="Pap and Wors">
+                                        <label for="papAndWors">🥘 Pap and Wors</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="other" name="favoriteFoods" value="Other">
+                                        <label for="other">🍽️ Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rating Section -->
+                        <div class="section">
+                            <div class="section-header">
+                                <div class="section-number purple">3</div>
+                                <h4>Rate Your Preferences</h4>
+                            </div>
+                            <p class="rating-instruction">Please rate each food/activity on a scale of 1-5 (1 = Strongly Dislike, 5 = Strongly Like)</p>
+                            
+                            <div class="rating-section">
+                                <label class="rating-label">How do you like Pizza? <span class="required">*</span></label>
+                                <div class="radio-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" id="pizza1" name="pizzaRating" value="1" required>
+                                        <label for="pizza1">1 - Strongly Dislike</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pizza2" name="pizzaRating" value="2">
+                                        <label for="pizza2">2 - Dislike</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pizza3" name="pizzaRating" value="3">
+                                        <label for="pizza3">3 - Neutral</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pizza4" name="pizzaRating" value="4">
+                                        <label for="pizza4">4 - Like</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pizza5" name="pizzaRating" value="5">
+                                        <label for="pizza5">5 - Strongly Like</label>
+                                    </div>
+                                </div>
+                                <div id="pizzaRating-error" class="error-message"></div>
+                            </div>
+
+                            <div class="rating-section">
+                                <label class="rating-label">How do you like Pasta? <span class="required">*</span></label>
+                                <div class="radio-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" id="pasta1" name="pastaRating" value="1" required>
+                                        <label for="pasta1">1 - Strongly Dislike</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pasta2" name="pastaRating" value="2">
+                                        <label for="pasta2">2 - Dislike</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pasta3" name="pastaRating" value="3">
+                                        <label for="pasta3">3 - Neutral</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pasta4" name="pastaRating" value="4">
+                                        <label for="pasta4">4 - Like</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pasta5" name="pastaRating" value="5">
+                                        <label for="pasta5">5 - Strongly Like</label>
+                                    </div>
+                                </div>
+                                <div id="pastaRating-error" class="error-message"></div>
+                            </div>
+
+                            <div class="rating-section">
+                                <label class="rating-label">How do you like Pap and Wors? <span class="required">*</span></label>
+                                <div class="radio-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" id="pap1" name="papRating" value="1" required>
+                                        <label for="pap1">1 - Strongly Dislike</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pap2" name="papRating" value="2">
+                                        <label for="pap2">2 - Dislike</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pap3" name="papRating" value="3">
+                                        <label for="pap3">3 - Neutral</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pap4" name="papRating" value="4">
+                                        <label for="pap4">4 - Like</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="pap5" name="papRating" value="5">
+                                        <label for="pap5">5 - Strongly Like</label>
+                                    </div>
+                                </div>
+                                <div id="papRating-error" class="error-message"></div>
+                            </div>
+
+                            <div class="rating-section">
+                                <label class="rating-label">How often do you like to eat out? <span class="required">*</span></label>
+                                <div class="radio-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" id="out1" name="outRating" value="1" required>
+                                        <label for="out1">1 - Never</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="out2" name="outRating" value="2">
+                                        <label for="out2">2 - Rarely</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="out3" name="outRating" value="3">
+                                        <label for="out3">3 - Sometimes</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="out4" name="outRating" value="4">
+                                        <label for="out4">4 - Often</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="out5" name="outRating" value="5">
+                                        <label for="out5">5 - Very Often</label>
+                                    </div>
+                                </div>
+                                <div id="outRating-error" class="error-message"></div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Section -->
+                        <div class="submit-section">
+                            <button type="submit" class="submit-btn">Submit Survey</button>
+                            <p class="privacy-text">Your responses are anonymous and will be used for research purposes only.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Page -->
+    <div id="results-page" class="page hidden">
+        <div class="container">
+            <div class="header-text">
+                <h2>Survey Analytics Dashboard</h2>
+                <p id="results-subtitle">Comprehensive insights from survey responses</p>
+            </div>
+
+            <!-- Export Controls -->
+            <div class="export-controls">
+                <button id="export-btn" class="export-btn" onclick="exportToCSV()">📊 Export to CSV</button>
+                <button id="clear-all-btn" class="clear-all-btn" onclick="clearAllData()">🗑️ Clear All Data</button>
+            </div>
+
+            <!-- No Data State -->
+            <div id="no-data" class="card no-data hidden">
+                <div class="card-content">
+                    <div class="no-data-icon">📊</div>
+                    <h4>No Survey Data Available</h4>
+                    <p>We haven't received any survey responses yet. Be the first to participate and help us gather valuable insights!</p>
+                    <button class="submit-btn" onclick="showSurvey()">Take the Survey</button>
+                </div>
+            </div>
+
+            <!-- Results Content -->
+            <div class="card results-card">
+                <div class="card-header results-header">
+                    <h3>📈 Survey Results & Analytics</h3>
+                </div>
+                <div class="card-content">
+                    <!-- Statistics Grid -->
+                    <div id="stats-grid" class="stats-grid"></div>
+
+                    <!-- Individual Responses -->
+                    <div id="responses-section" class="responses-section">
+                        <h4 class="responses-title">Individual Responses</h4>
+                        <div id="responses-list" class="responses-list"></div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div id="chart-container" class="chart-container">
+                        <h4>📊 Food Preferences Distribution</h4>
+                        <canvas id="chart" width="800" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
